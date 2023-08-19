@@ -5,6 +5,23 @@
 		  http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          version="3.0">
 
+    <listener>
+        <listener-class>com.otaku.webapp.listener.ContextListener</listener-class>
+    </listener>
+
+<!--    Single Page WebApp wage ynawanm me context param deka dannama oni-->
+
+    <context-param>
+        <param-name>jsp-inheritance-prefix</param-name>
+        <param-value>/WEB-INF/views/layout/</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>jsp-inheritance-suffix</param-name>
+        <param-value>.jsp</param-value>
+    </context-param>
+
+
     <filter>
         <filter-name>Otaku_App</filter-name>
         <filter-class>org.glassfish.jersey.servlet.ServletContainer</filter-class>

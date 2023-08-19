@@ -6,7 +6,8 @@ import org.glassfish.jersey.server.mvc.jsp.JspMvcFeature;
 public class AppConfig extends ResourceConfig {
     public AppConfig(){
         packages("com.otaku.webapp.controller");
+
         register(JspMvcFeature.class);
-        property(JspMvcFeature.TEMPLATE_BASE_PATH,"/views");
+        property(JspMvcFeature.TEMPLATE_BASE_PATH,"/WEB-INF/views");
     }
 }

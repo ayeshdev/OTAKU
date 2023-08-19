@@ -8,6 +8,6 @@ import org.glassfish.jersey.server.mvc.Viewable;
 public class HomeController {
     @GET
     public Viewable index(){
-        return new Viewable("/index");
+        return new Viewable("/frontend/home");
     }
 }
