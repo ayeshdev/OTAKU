@@ -110,7 +110,7 @@
                                         <table class="table table-striped">
                                             <tbody>
                                             <tr>
-                                                <td class="text-center"><a href="#"><img src="img/products/01.jpg" alt="01" title="01" height="104" width="80"></a></td>
+                                                <td class="text-center"><a href="#"><img src="img/productDTO/01.jpg" alt="01" title="01" height="104" width="80"></a></td>
                                                 <td class="text-left product-name"><a href="#">aliquam quaerat voluptatem</a>
                                                     <div class="quantity float-left w-100">
                                                         <span class="cart-qty">1 × </span>
@@ -164,7 +164,7 @@
                             <!-- Links -->
                             <ul class="navbar-nav m-auto justify-content-center">
                                 <li class="nav-item dropdown active">
-                                    <a class="nav-link dropdown-toggle text-uppercase" href="category.html">
+                                    <a class="nav-link dropdown-toggle text-uppercase" href="#">
                                         Home
                                         <span class="sr-only">(current)</span>        </a>
                                     <div class="dropdown-menu mega-menu v-2 z-depth-1 special-color py-3 px-3">
@@ -172,7 +172,7 @@
                                             <ul class="list-unstyled">
                                                 <li>
                                                     <a class="menu-item pl-0" href="index.html">
-                                                        Home 1                  </a>                </li>
+                                                        Home                  </a>                </li>
                                                 <li>
                                                     <a class="menu-item pl-0" href="index2.html">
                                                         Home 2                  </a>                </li>
@@ -572,14 +572,14 @@
                         </div>
                         <div class="tab-content float-left w-100">
                             <div class="tab-pane active float-left w-100" id="ttfeatured-main" role="tabpanel" aria-labelledby="featured-tab">
-                                <section id="ttfeatured" class="ttfeatured-products">
-                                    <div class="ttfeatured-content products grid owl-carousel" id="owl1">
+                                <section id="ttfeatured" class="ttfeatured-productDTO">
+                                    <div class="ttfeatured-content productDTO grid owl-carousel" id="owl1">
                                         <div class="product-layouts">
                                             <div class="product-thumb">
                                                 <div class="image zoom">
                                                     <a href="product-details.html">
-                                                        <img src="img/products/01.jpg" alt="01" height="501" width="385"/>
-                                                        <img src="img/products/02.jpg" alt="02" class="second_image img-responsive" height="501" width="385"/>										</a>
+                                                        <img src="img/productDTO/01.jpg" alt="01" height="501" width="385"/>
+                                                        <img src="img/productDTO/02.jpg" alt="02" class="second_image img-responsive" height="501" width="385"/>										</a>
                                                     <ul class="countdown1 countdown">
                                                         <li><span class="days">00</span><p class="days_text">Days</p></li>
                                                         <li><span class="hours">00</span><p class="hours_text">Hours</p></li>
@@ -618,8 +618,8 @@
                                             <div class="product-thumb">
                                                 <div class="image zoom">
                                                     <a href="product-details.html">
-                                                        <img src="img/products/02.jpg" alt="02" height="501" width="385"/>
-                                                        <img src="img/products/03.jpg" alt="03" class="second_image img-responsive" height="501" width="385"/>										</a>
+                                                        <img src="img/productDTO/02.jpg" alt="02" height="501" width="385"/>
+                                                        <img src="img/productDTO/03.jpg" alt="03" class="second_image img-responsive" height="501" width="385"/>										</a>
                                                     <div class="flags">
                                                         <div class="sale">sale</div>
                                                         <div class="new">new</div>
@@ -662,8 +662,8 @@
                                             <div class="product-thumb">
                                                 <div class="image zoom">
                                                     <a href="product-details.html">
-                                                        <img src="img/products/03.jpg" alt="03" height="501" width="385"/>
-                                                        <img src="img/products/04.jpg" alt="04" class="second_image img-responsive" height="501" width="385"/></a></div>
+                                                        <img src="img/productDTO/03.jpg" alt="03" height="501" width="385"/>
+                                                        <img src="img/productDTO/04.jpg" alt="04" class="second_image img-responsive" height="501" width="385"/></a></div>
                                                 <div class="thumb-description">
                                                     <div class="caption">
                                                         <h4 class="product-title text-capitalize"><a href="product-details.html">Shoulder Embroidered Bodysuit</a></h4>
@@ -695,8 +695,8 @@
                                             <div class="product-thumb">
                                                 <div class="image zoom">
                                                     <a href="product-details.html">
-                                                        <img src="img/products/04.jpg" alt="04" height="501" width="385"/>
-                                                        <img src="img/products/05.jpg" alt="05" class="second_image img-responsive" height="501" width="385"/>										</a>									</div>
+                                                        <img src="img/productDTO/04.jpg" alt="04" height="501" width="385"/>
+                                                        <img src="img/productDTO/05.jpg" alt="05" class="second_image img-responsive" height="501" width="385"/>										</a>									</div>
                                                 <div class="thumb-description">
                                                     <div class="caption">
                                                         <h4 class="product-title text-capitalize"><a href="product-details.html">Checked Polo Collar T-shirt</a></h4>
@@ -728,8 +728,8 @@
                                             <div class="product-thumb">
                                                 <div class="image zoom">
                                                     <a href="product-details.html">
-                                                        <img src="img/products/05.jpg" alt="05" height="501" width="385"/>
-                                                        <img src="img/products/06.jpg" alt="06" class="second_image img-responsive" height="501" width="385"/></a></div>
+                                                        <img src="img/productDTO/05.jpg" alt="05" height="501" width="385"/>
+                                                        <img src="img/productDTO/06.jpg" alt="06" class="second_image img-responsive" height="501" width="385"/></a></div>
                                                 <div class="thumb-description">
                                                     <div class="caption">
                                                         <h4 class="product-title text-capitalize"><a href="product-details.html">Crochet Detail Lightweight Top</a></h4>
@@ -761,8 +761,8 @@
                                             <div class="product-thumb">
                                                 <div class="image zoom">
                                                     <a href="product-details.html">
-                                                        <img src="img/products/06.jpg" alt="06" height="501" width="385"/>
-                                                        <img src="img/products/07.jpg" alt="07" class="second_image img-responsive" height="501" width="385"/>										</a>									</div>
+                                                        <img src="img/productDTO/06.jpg" alt="06" height="501" width="385"/>
+                                                        <img src="img/productDTO/07.jpg" alt="07" class="second_image img-responsive" height="501" width="385"/>										</a>									</div>
                                                 <div class="thumb-description">
                                                     <div class="caption">
                                                         <h4 class="product-title text-capitalize"><a href="product-details.html">Girls Floral Print Jumpsuit</a></h4>
@@ -794,8 +794,8 @@
                                             <div class="product-thumb">
                                                 <div class="image zoom">
                                                     <a href="product-details.html">
-                                                        <img src="img/products/07.jpg" alt="07" height="501" width="385"/>
-                                                        <img src="img/products/08.jpg" alt="08" class="second_image img-responsive" height="501" width="385"/>										</a>									</div>
+                                                        <img src="img/productDTO/07.jpg" alt="07" height="501" width="385"/>
+                                                        <img src="img/productDTO/08.jpg" alt="08" class="second_image img-responsive" height="501" width="385"/>										</a>									</div>
                                                 <div class="thumb-description">
                                                     <div class="caption">
                                                         <h4 class="product-title text-capitalize"><a href="product-details.html">Girls Striped Fit and Flare Dress</a></h4>
@@ -827,8 +827,8 @@
                                             <div class="product-thumb">
                                                 <div class="image zoom">
                                                     <a href="product-details.html">
-                                                        <img src="img/products/08.jpg" alt="03" height="501" width="385"/>
-                                                        <img src="img/products/09.jpg" alt="09" class="second_image img-responsive" height="501" width="385"/></a></div>
+                                                        <img src="img/productDTO/08.jpg" alt="03" height="501" width="385"/>
+                                                        <img src="img/productDTO/09.jpg" alt="09" class="second_image img-responsive" height="501" width="385"/></a></div>
                                                 <div class="thumb-description">
                                                     <div class="caption">
                                                         <h4 class="product-title text-capitalize"><a href="product-details.html">Juventus Henley Neck Jersey</a></h4>
@@ -860,14 +860,14 @@
                                 </section>
                             </div>
                             <div class="tab-pane float-left w-100" id="ttnew-main" role="tabpanel" aria-labelledby="new-tab">
-                                <section id="ttnew" class="ttnew-products">
-                                    <div class="ttnew-content products grid owl-carousel" id="owl2">
+                                <section id="ttnew" class="ttnew-productDTO">
+                                    <div class="ttnew-content productDTO grid owl-carousel" id="owl2">
                                         <div class="product-layouts">
                                             <div class="product-thumb">
                                                 <div class="image zoom">
                                                     <a href="product-details.html">
-                                                        <img src="img/products/01.jpg" alt="01" height="501" width="385"/>
-                                                        <img src="img/products/02.jpg" alt="02" class="second_image img-responsive" height="501" width="385"/>									</a>
+                                                        <img src="img/productDTO/01.jpg" alt="01" height="501" width="385"/>
+                                                        <img src="img/productDTO/02.jpg" alt="02" class="second_image img-responsive" height="501" width="385"/>									</a>
                                                     <ul class="countdown1 countdown">
                                                         <li><span class="days">00</span><p class="days_text">Days</p></li>
                                                         <li><span class="hours">00</span><p class="hours_text">Hours</p></li>
@@ -906,8 +906,8 @@
                                             <div class="product-thumb">
                                                 <div class="image zoom">
                                                     <a href="product-details.html">
-                                                        <img src="img/products/02.jpg" alt="02" height="501" width="385"/>
-                                                        <img src="img/products/03.jpg" alt="03" class="second_image img-responsive" height="501" width="385"/>									</a>								</div>
+                                                        <img src="img/productDTO/02.jpg" alt="02" height="501" width="385"/>
+                                                        <img src="img/productDTO/03.jpg" alt="03" class="second_image img-responsive" height="501" width="385"/>									</a>								</div>
                                                 <div class="thumb-description">
                                                     <div class="caption">
                                                         <h4 class="product-title text-capitalize"><a href="product-details.html">Printed Polo Collar T-shirt</a></h4>
@@ -939,8 +939,8 @@
                                             <div class="product-thumb">
                                                 <div class="image zoom">
                                                     <a href="product-details.html">
-                                                        <img src="img/products/03.jpg" alt="03" height="501" width="385"/>
-                                                        <img src="img/products/04.jpg" alt="04" class="second_image img-responsive" height="501" width="385"/>									</a>								</div>
+                                                        <img src="img/productDTO/03.jpg" alt="03" height="501" width="385"/>
+                                                        <img src="img/productDTO/04.jpg" alt="04" class="second_image img-responsive" height="501" width="385"/>									</a>								</div>
                                                 <div class="thumb-description">
                                                     <div class="caption">
                                                         <h4 class="product-title text-capitalize"><a href="product-details.html">Burgundy Small Dresss</a></h4>
@@ -972,8 +972,8 @@
                                             <div class="product-thumb">
                                                 <div class="image zoom">
                                                     <a href="product-details.html">
-                                                        <img src="img/products/04.jpg" alt="04" height="501" width="385"/>
-                                                        <img src="img/products/05.jpg" alt="05" class="second_image img-responsive" height="501" width="385"/></a></div>
+                                                        <img src="img/productDTO/04.jpg" alt="04" height="501" width="385"/>
+                                                        <img src="img/productDTO/05.jpg" alt="05" class="second_image img-responsive" height="501" width="385"/></a></div>
                                                 <div class="thumb-description">
                                                     <div class="caption">
                                                         <h4 class="product-title text-capitalize"><a href="product-details.html">Merino Small Dress</a></h4>
@@ -1005,8 +1005,8 @@
                                             <div class="product-thumb">
                                                 <div class="image zoom">
                                                     <a href="product-details.html">
-                                                        <img src="img/products/05.jpg" alt="05" height="501" width="385"/>
-                                                        <img src="img/products/06.jpg" alt="06" class="second_image img-responsive" height="501" width="385"/></a>
+                                                        <img src="img/productDTO/05.jpg" alt="05" height="501" width="385"/>
+                                                        <img src="img/productDTO/06.jpg" alt="06" class="second_image img-responsive" height="501" width="385"/></a>
                                                 </div>
                                                 <div class="thumb-description">
                                                     <div class="caption">
@@ -1039,8 +1039,8 @@
                                             <div class="product-thumb">
                                                 <div class="image zoom">
                                                     <a href="product-details.html">
-                                                        <img src="img/products/06.jpg" alt="06" height="501" width="385"/>
-                                                        <img src="img/products/07.jpg" alt="07" class="second_image img-responsive" height="501" width="385"/></a></div>
+                                                        <img src="img/productDTO/06.jpg" alt="06" height="501" width="385"/>
+                                                        <img src="img/productDTO/07.jpg" alt="07" class="second_image img-responsive" height="501" width="385"/></a></div>
                                                 <div class="thumb-description">
                                                     <div class="caption">
                                                         <h4 class="product-title text-capitalize"><a href="product-details.html">Medium Denim Overshirt</a></h4>
@@ -1072,8 +1072,8 @@
                                             <div class="product-thumb">
                                                 <div class="image zoom">
                                                     <a href="product-details.html">
-                                                        <img src="img/products/07.jpg" alt="03" height="501" width="385"/>
-                                                        <img src="img/products/08.jpg" alt="08" class="second_image img-responsive" height="501" width="385"/></a></div>
+                                                        <img src="img/productDTO/07.jpg" alt="03" height="501" width="385"/>
+                                                        <img src="img/productDTO/08.jpg" alt="08" class="second_image img-responsive" height="501" width="385"/></a></div>
                                                 <div class="thumb-description">
                                                     <div class="caption">
                                                         <h4 class="product-title text-capitalize"><a href="#">Long Sleeves Cotton Polo</a></h4>
@@ -1105,8 +1105,8 @@
                                             <div class="product-thumb">
                                                 <div class="image zoom">
                                                     <a href="product-details.html">
-                                                        <img src="img/products/08.jpg" alt="08" height="501" width="385"/>
-                                                        <img src="img/products/09.jpg" alt="09" class="second_image img-responsive" height="501" width="385"/></a></div>
+                                                        <img src="img/productDTO/08.jpg" alt="08" height="501" width="385"/>
+                                                        <img src="img/productDTO/09.jpg" alt="09" class="second_image img-responsive" height="501" width="385"/></a></div>
                                                 <div class="thumb-description">
                                                     <div class="caption">
                                                         <h4 class="product-title text-capitalize"><a href="product-details.html">Long Sleeves Cotton Polo</a></h4>
@@ -1138,14 +1138,14 @@
                                 </section>
                             </div>
                             <div class="tab-pane float-left w-100" id="ttbestseller-main" role="tabpanel" aria-labelledby="bestseller-tab">
-                                <section id="ttbestseller" class="ttbestseller-products">
-                                    <div class="ttbestseller-content products grid owl-carousel" id="owl3">
+                                <section id="ttbestseller" class="ttbestseller-productDTO">
+                                    <div class="ttbestseller-content productDTO grid owl-carousel" id="owl3">
                                         <div class="product-layouts">
                                             <div class="product-thumb">
                                                 <div class="image zoom">
                                                     <a href="product-details.html">
-                                                        <img src="img/products/01.jpg" alt="01" height="501" width="385"/>
-                                                        <img src="img/products/02.jpg" alt="02" class="second_image img-responsive" height="501" width="385"/>									</a>
+                                                        <img src="img/productDTO/01.jpg" alt="01" height="501" width="385"/>
+                                                        <img src="img/productDTO/02.jpg" alt="02" class="second_image img-responsive" height="501" width="385"/>									</a>
                                                     <ul class="countdown1 countdown">
                                                         <li><span class="days">00</span><p class="days_text">Days</p></li>
                                                         <li><span class="hours">00</span><p class="hours_text">Hours</p></li>
@@ -1185,8 +1185,8 @@
                                             <div class="product-thumb">
                                                 <div class="image zoom">
                                                     <a href="product-details.html">
-                                                        <img src="img/products/02.jpg" alt="02" height="501" width="385"/>
-                                                        <img src="img/products/03.jpg" alt="03" class="second_image img-responsive" height="501" width="385"/></a></div>
+                                                        <img src="img/productDTO/02.jpg" alt="02" height="501" width="385"/>
+                                                        <img src="img/productDTO/03.jpg" alt="03" class="second_image img-responsive" height="501" width="385"/></a></div>
                                                 <div class="thumb-description">
                                                     <div class="caption">
                                                         <h4 class="product-title text-capitalize"><a href="product-details.html">Women Floral Print Lounge T-Shirt</a></h4>
@@ -1218,8 +1218,8 @@
                                             <div class="product-thumb">
                                                 <div class="image zoom">
                                                     <a href="product-details.html">
-                                                        <img src="img/products/03.jpg" alt="03" height="501" width="385"/>
-                                                        <img src="img/products/04.jpg" alt="04" class="second_image img-responsive" height="501" width="385"/></a></div>
+                                                        <img src="img/productDTO/03.jpg" alt="03" height="501" width="385"/>
+                                                        <img src="img/productDTO/04.jpg" alt="04" class="second_image img-responsive" height="501" width="385"/></a></div>
                                                 <div class="thumb-description">
                                                     <div class="caption">
                                                         <h4 class="product-title text-capitalize"><a href="product-details.html">Women Striped Shirt Dress</a></h4>
@@ -1251,8 +1251,8 @@
                                             <div class="product-thumb">
                                                 <div class="image zoom">
                                                     <a href="product-details.html">
-                                                        <img src="img/products/04.jpg" alt="03" height="501" width="385"/>
-                                                        <img src="img/products/05.jpg" alt="05" class="second_image img-responsive" height="501" width="385"/></a></div>
+                                                        <img src="img/productDTO/04.jpg" alt="03" height="501" width="385"/>
+                                                        <img src="img/productDTO/05.jpg" alt="05" class="second_image img-responsive" height="501" width="385"/></a></div>
                                                 <div class="thumb-description">
                                                     <div class="caption">
                                                         <h4 class="product-title text-capitalize"><a href="product-details.html">Women Solid Bodycon Dress</a></h4>
@@ -1284,8 +1284,8 @@
                                             <div class="product-thumb">
                                                 <div class="image zoom">
                                                     <a href="product-details.html">
-                                                        <img src="img/products/05.jpg" alt="03" height="501" width="385"/>
-                                                        <img src="img/products/06.jpg" alt="06" class="second_image img-responsive" height="501" width="385"/>									</a>									</div>
+                                                        <img src="img/productDTO/05.jpg" alt="03" height="501" width="385"/>
+                                                        <img src="img/productDTO/06.jpg" alt="06" class="second_image img-responsive" height="501" width="385"/>									</a>									</div>
                                                 <div class="thumb-description">
                                                     <div class="caption">
                                                         <h4 class="product-title text-capitalize"><a href="product-details.html">Printed V-Neck T-shirt</a></h4>
@@ -1317,7 +1317,7 @@
                                             <div class="product-thumb">
                                                 <div class="image zoom">
                                                     <a href="product-details.html">
-                                                        <img src="img/products/06.jpg" alt="03" height="501" width="385"/>										</a>									</div>
+                                                        <img src="img/productDTO/06.jpg" alt="03" height="501" width="385"/>										</a>									</div>
                                                 <div class="thumb-description">
                                                     <div class="caption">
                                                         <h4 class="product-title text-capitalize"><a href="product-details.html">Solid Straight Kurta</a></h4>
@@ -1349,7 +1349,7 @@
                                             <div class="product-thumb">
                                                 <div class="image zoom">
                                                     <a href="product-details.html">
-                                                        <img src="img/products/07.jpg" alt="03" height="501" width="385"/>										</a>									</div>
+                                                        <img src="img/productDTO/07.jpg" alt="03" height="501" width="385"/>										</a>									</div>
                                                 <div class="thumb-description">
                                                     <div class="caption">
                                                         <h4 class="product-title text-capitalize"><a href="product-details.html">Tropical Shirt Dress</a></h4>
@@ -1381,7 +1381,7 @@
                                             <div class="product-thumb">
                                                 <div class="image zoom">
                                                     <a href="product-details.html">
-                                                        <img src="img/products/08.jpg" alt="03" height="501" width="385"/></a></div>
+                                                        <img src="img/productDTO/08.jpg" alt="03" height="501" width="385"/></a></div>
                                                 <div class="thumb-description">
                                                     <div class="caption">
                                                         <h4 class="product-title text-capitalize"><a href="product-details.html">Shoulder Embroidered Bodysuit</a></h4>
@@ -1496,14 +1496,14 @@
             <div id="ttspecial" class="ttspecial my-40 bottom-to-top hb-animate-element">
                 <div class="container">
                     <div class="row">
-                        <div class="tt-title d-inline-block float-none w-100 text-center">special products</div>
-                        <div class="ttspecial-content products grid owl-carousel">
+                        <div class="tt-title d-inline-block float-none w-100 text-center">special productDTO</div>
+                        <div class="ttspecial-content productDTO grid owl-carousel">
                             <div class="product-layouts">
                                 <div class="product-thumb">
                                     <div class="image zoom">
                                         <a href="#">
-                                            <img src="img/products/01.jpg" alt="01" height="501" width="385"/>
-                                            <img src="img/products/02.jpg" alt="02" class="second_image img-responsive" height="501" width="385"/>										</a>
+                                            <img src="img/productDTO/01.jpg" alt="01" height="501" width="385"/>
+                                            <img src="img/productDTO/02.jpg" alt="02" class="second_image img-responsive" height="501" width="385"/>										</a>
                                         <ul class="countdown3 countdown">
                                             <li><span class="days">00</span><p class="days_text">Days</p></li>
                                             <li><span class="hours">00</span><p class="hours_text">Hours</p></li>
@@ -1542,8 +1542,8 @@
                                 <div class="product-thumb">
                                     <div class="image zoom">
                                         <a href="#">
-                                            <img src="img/products/02.jpg" alt="02" height="501" width="385"/>
-                                            <img src="img/products/03.jpg" alt="03" class="second_image img-responsive" height="501" width="385"/></a></div>
+                                            <img src="img/productDTO/02.jpg" alt="02" height="501" width="385"/>
+                                            <img src="img/productDTO/03.jpg" alt="03" class="second_image img-responsive" height="501" width="385"/></a></div>
                                     <div class="thumb-description">
                                         <div class="caption">
                                             <h4 class="product-title text-capitalize"><a href="product-details.html">Crochet Detail Lightweight Top</a></h4>
@@ -1575,8 +1575,8 @@
                                 <div class="product-thumb">
                                     <div class="image zoom">
                                         <a href="#">
-                                            <img src="img/products/03.jpg" alt="03" height="501" width="385"/>
-                                            <img src="img/products/04.jpg" alt="04" class="second_image img-responsive" height="501" width="385"/></a></div>
+                                            <img src="img/productDTO/03.jpg" alt="03" height="501" width="385"/>
+                                            <img src="img/productDTO/04.jpg" alt="04" class="second_image img-responsive" height="501" width="385"/></a></div>
                                     <div class="thumb-description">
                                         <div class="caption">
                                             <h4 class="product-title text-capitalize"><a href="product-details.html">Girls Floral Print Jumpsuit</a></h4>
@@ -1608,8 +1608,8 @@
                                 <div class="product-thumb">
                                     <div class="image zoom">
                                         <a href="#">
-                                            <img src="img/products/04.jpg" alt="04" height="501" width="385"/>
-                                            <img src="img/products/05.jpg" alt="05" class="second_image img-responsive" height="501" width="385"/></a></div>
+                                            <img src="img/productDTO/04.jpg" alt="04" height="501" width="385"/>
+                                            <img src="img/productDTO/05.jpg" alt="05" class="second_image img-responsive" height="501" width="385"/></a></div>
                                     <div class="thumb-description">
                                         <div class="caption">
                                             <h4 class="product-title text-capitalize"><a href="product-details.html">Girls Striped Fit and Flare Dress</a></h4>
@@ -1640,8 +1640,8 @@
                                 <div class="product-thumb">
                                     <div class="image zoom">
                                         <a href="#">
-                                            <img src="img/products/05.jpg" alt="05" height="501" width="385"/>
-                                            <img src="img/products/06.jpg" alt="06" class="second_image img-responsive" height="501" width="385"/>										</a>									</div>
+                                            <img src="img/productDTO/05.jpg" alt="05" height="501" width="385"/>
+                                            <img src="img/productDTO/06.jpg" alt="06" class="second_image img-responsive" height="501" width="385"/>										</a>									</div>
                                     <div class="thumb-description">
                                         <div class="caption">
                                             <h4 class="product-title text-capitalize"><a href="product-details.html">Juventus Henley Neck Jersey</a></h4>
@@ -1673,8 +1673,8 @@
                                 <div class="product-thumb">
                                     <div class="image zoom">
                                         <a href="#">
-                                            <img src="img/products/06.jpg" alt="06" height="501" width="385"/>
-                                            <img src="img/products/07.jpg" alt="07" class="second_image img-responsive" height="501" width="385"/></a></div>
+                                            <img src="img/productDTO/06.jpg" alt="06" height="501" width="385"/>
+                                            <img src="img/productDTO/07.jpg" alt="07" class="second_image img-responsive" height="501" width="385"/></a></div>
                                     <div class="thumb-description">
                                         <div class="caption">
                                             <h4 class="product-title text-capitalize"><a href="product-details.html">Printed Dugaree with T-Shirt</a></h4>
@@ -1874,8 +1874,8 @@
             </div>
             <div class="col-md-2 footer-column">
                 <div class="title">
-                    <a href="#products" class="font-weight-normal text-capitalize mb-10" data-toggle="collapse" aria-expanded="false">products</a>		  </div>
-                <ul id="products" class="list-unstyled collapse">
+                    <a href="#productDTO" class="font-weight-normal text-capitalize mb-10" data-toggle="collapse" aria-expanded="false">productDTO</a>		  </div>
+                <ul id="productDTO" class="list-unstyled collapse">
                     <li>
                         <a href="blog-details.html">blog</a>            </li>
                     <li>
@@ -2028,46 +2028,46 @@
                         <div class="product-large-image tab-content">
                             <div class="tab-pane active" id="product-1" role="tabpanel" aria-labelledby="product-tab-1">
                                 <div class="single-img img-full">
-                                    <a href="img/products/01.jpg"><img src="img/products/01.jpg" class="img-fluid" alt="" width="368" height="478"></a>
+                                    <a href="img/productDTO/01.jpg"><img src="img/productDTO/01.jpg" class="img-fluid" alt="" width="368" height="478"></a>
                                 </div>
                             </div>
                             <div class="tab-pane" id="product-2" role="tabpanel" aria-labelledby="product-tab-2">
                                 <div class="single-img">
-                                    <a href="img/products/02.jpg"><img src="img/products/02.jpg" class="img-fluid" alt="" width="368" height="478"></a>
+                                    <a href="img/productDTO/02.jpg"><img src="img/productDTO/02.jpg" class="img-fluid" alt="" width="368" height="478"></a>
                                 </div>
                             </div>
                             <div class="tab-pane" id="product-3" role="tabpanel" aria-labelledby="product-tab-3">
                                 <div class="single-img">
-                                    <a href="img/products/03.jpg"><img src="img/products/03.jpg" class="img-fluid" alt="" width="368" height="478"></a>
+                                    <a href="img/productDTO/03.jpg"><img src="img/productDTO/03.jpg" class="img-fluid" alt="" width="368" height="478"></a>
                                 </div>
                             </div>
                             <div class="tab-pane" id="product-4" role="tabpanel" aria-labelledby="product-tab-4">
                                 <div class="single-img">
-                                    <a href="img/products/04.jpg"><img src="img/products/04.jpg" class="img-fluid" alt="" width="368" height="478"></a>
+                                    <a href="img/productDTO/04.jpg"><img src="img/productDTO/04.jpg" class="img-fluid" alt="" width="368" height="478"></a>
                                 </div>
                             </div>
                             <div class="tab-pane" id="product-5" role="tabpanel" aria-labelledby="product-tab-5">
                                 <div class="single-img">
-                                    <a href="img/products/05.jpg"><img src="img/products/05.jpg" class="img-fluid" alt="" width="368" height="478"></a>
+                                    <a href="img/productDTO/05.jpg"><img src="img/productDTO/05.jpg" class="img-fluid" alt="" width="368" height="478"></a>
                                 </div>
                             </div>
                         </div>
                         <div class="small-image-list float-left w-100">
                             <div class="nav-add small-image-slider-single-product-tabstyle-3 owl-carousel" role="tablist">
                                 <div class="single-small-image img-full">
-                                    <a data-toggle="tab" id="product-tab-1" href="#product-1" class="img active"><img src="img/products/01.jpg" class="img-fluid" alt=""></a>
+                                    <a data-toggle="tab" id="product-tab-1" href="#product-1" class="img active"><img src="img/productDTO/01.jpg" class="img-fluid" alt=""></a>
                                 </div>
                                 <div class="single-small-image img-full">
-                                    <a data-toggle="tab" id="product-tab-2" href="#product-2" class="img"><img src="img/products/02.jpg" class="img-fluid" alt=""></a>
+                                    <a data-toggle="tab" id="product-tab-2" href="#product-2" class="img"><img src="img/productDTO/02.jpg" class="img-fluid" alt=""></a>
                                 </div>
                                 <div class="single-small-image img-full">
-                                    <a data-toggle="tab" id="product-tab-3" href="#product-3" class="img"><img src="img/products/03.jpg" class="img-fluid" alt=""></a>
+                                    <a data-toggle="tab" id="product-tab-3" href="#product-3" class="img"><img src="img/productDTO/03.jpg" class="img-fluid" alt=""></a>
                                 </div>
                                 <div class="single-small-image img-full">
-                                    <a data-toggle="tab" id="product-tab-4" href="#product-4" class="img"><img src="img/products/04.jpg" class="img-fluid" alt=""></a>
+                                    <a data-toggle="tab" id="product-tab-4" href="#product-4" class="img"><img src="img/productDTO/04.jpg" class="img-fluid" alt=""></a>
                                 </div>
                                 <div class="single-small-image img-full">
-                                    <a data-toggle="tab" id="product-tab-5" href="#product-5" class="img"><img src="img/products/05.jpg" class="img-fluid" alt=""></a>
+                                    <a data-toggle="tab" id="product-tab-5" href="#product-5" class="img"><img src="img/productDTO/05.jpg" class="img-fluid" alt=""></a>
                                 </div>
                             </div>
                         </div>
@@ -2135,7 +2135,7 @@
                     <div class="col-md-6 divide-right">
                         <div class="row">
                             <div class="col-md-5 col-sm-4 col-xs-12 product-img float-left">
-                                <img src="img/products/01.jpg" class="img-responsive" alt="01">
+                                <img src="img/productDTO/01.jpg" class="img-responsive" alt="01">
                             </div>
                             <div class="col-md-7 col-sm-8 col-xs-12 product-desc float-left">
                                 <h4 class="product-title text-capitalize">Burgundy Small Dress</h4>
@@ -2151,9 +2151,9 @@
                         </div>
                     </div>
                     <div class="col-md-6 divide-left">
-                        <p class="cart-products-count">There are 2 items in your cart.</p>
-                        <p class="total-products float-left w-100">
-                            <strong>Total products:</strong> $150.00
+                        <p class="cart-productDTO-count">There are 2 items in your cart.</p>
+                        <p class="total-productDTO float-left w-100">
+                            <strong>Total productDTO:</strong> $150.00
                         </p>
                         <p class="shipping float-left w-100">
                             <strong>Total shipping:</strong> free
@@ -2183,24 +2183,24 @@
   close
 </i></span>
         <div class="col-xs-12 col-sm-2 col-md-3 float-left d-flex align-items-center flex-column compare-left">
-            <h2>compare products</h2>
+            <h2>compare productDTO</h2>
             <div class="compare-btn">show all</div>
         </div>
         <div class="col-xs-12 col-sm-10 col-md-9 d-flex float-left align-items-center compare-right">
             <div class="compare-close-btn"></div>
-            <div class="compare-products d-flex col-sm-7 col-lg-5">
+            <div class="compare-productDTO d-flex col-sm-7 col-lg-5">
                 <div class="row">
                     <div class="single-item col-sm-4 col-xs-4">
                         <div class="remove"></div>
-                        <div class="image"><img src="img/products/01.jpg" class="img-fluid" alt=""></div>
+                        <div class="image"><img src="img/productDTO/01.jpg" class="img-fluid" alt=""></div>
                     </div>
                     <div class="single-item col-sm-4 col-xs-4">
                         <div class="remove"></div>
-                        <div class="image"><img src="img/products/02.jpg" class="img-fluid" alt=""></div>
+                        <div class="image"><img src="img/productDTO/02.jpg" class="img-fluid" alt=""></div>
                     </div>
                     <div class="single-item col-sm-4 col-xs-4">
                         <div class="remove"></div>
-                        <div class="image"><img src="img/products/03.jpg" class="img-fluid" alt=""></div>
+                        <div class="image"><img src="img/productDTO/03.jpg" class="img-fluid" alt=""></div>
                     </div>
                 </div>
             </div>

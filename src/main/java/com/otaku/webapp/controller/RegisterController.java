@@ -2,6 +2,7 @@ package com.otaku.webapp.controller;
 
 import com.otaku.webapp.dto.RegisterDTO;
 import com.otaku.webapp.entity.User;
+import com.otaku.webapp.model.UserDetails;
 import com.otaku.webapp.service.Encryption;
 import com.otaku.webapp.service.UserService;
 import jakarta.ws.rs.Consumes;
@@ -18,7 +19,7 @@ public class RegisterController {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response register(RegisterDTO registerDTO){
         UserService userService = new UserService();
-        User byEmail = userService.getByEmail(registerDTO.getEmail());
+        UserDetails byEmail = userService.getUserByEmail(registerDTO.getEmail());
 
         if (byEmail != null){
             return Response.status(Response.Status.BAD_REQUEST).entity("Email already exists").build();
@@ -27,6 +28,8 @@ public class RegisterController {
             user.setName(registerDTO.getName());
             user.setEmail(registerDTO.getEmail());
             user.setPassword(Encryption.encrypt(registerDTO.getPassword()));
+
+            System.out.println(user);
 
             String verificationCode = UUID.randomUUID().toString();
             user.setVerification_code(verificationCode);

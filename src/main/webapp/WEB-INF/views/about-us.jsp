@@ -118,7 +118,7 @@
                       <tbody>
                       <tr>
                         <td class="text-center">
-                          <a href="#"><img src="img/products/01.jpg" alt="01" title="01"></a>
+                          <a href="#"><img src="img/productDTO/01.jpg" alt="01" title="01"></a>
                         </td>
                         <td class="text-left product-name"><a href="#">aliquam quaerat voluptatem</a>
                           <div class="quantity float-left w-100">
@@ -919,8 +919,8 @@
       </div>
       <div class="col-md-2 footer-column">
         <div class="title">
-          <a href="#products" class="font-weight-normal text-capitalize mb-10" data-toggle="collapse" aria-expanded="false">products</a> </div>
-        <ul id="products" class="list-unstyled collapse">
+          <a href="#productDTO" class="font-weight-normal text-capitalize mb-10" data-toggle="collapse" aria-expanded="false">productDTO</a> </div>
+        <ul id="productDTO" class="list-unstyled collapse">
           <li>
             <a href="blog-details.html">blog</a> </li>
           <li>

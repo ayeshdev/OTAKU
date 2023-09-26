@@ -3,6 +3,7 @@ package com.otaku.webapp.entity;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -19,6 +20,9 @@ public class User extends BaseEntity {
     @Column(name = "user_type")
     private UserType userType = UserType.USER;
 
+//    @OneToMany(mappedBy = "cart")
+//    private List<ProductService> cartList;
+
     public User() {
     }
 
@@ -29,6 +33,7 @@ public class User extends BaseEntity {
         this.verification_code = verification_code;
         this.userType = userType;
     }
+
 
     public Long getId() {
         return id;

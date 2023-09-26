@@ -40,7 +40,7 @@
           </div>
           <div class="header-middle float-lg-left float-md-left float-sm-left float-xs-none">
             <div class="logo">
-              <a href="index.html"><img src="${BASE_URL}assets/img/logos/text-logo-01.png" alt="logo" width="200" height="50" ></a>		</div>
+              <a href="#"><img src="${BASE_URL}assets/img/logos/text-logo.png" alt="logo" width="200" height="50" ></a>		</div>
           </div>
           <div class="header-right d-flex d-xs-flex d-sm-flex justify-content-end float-right">
             <div class="search-wrapper">
@@ -75,7 +75,7 @@
                     <table class="table table-striped">
                       <tbody>
                       <tr>
-                        <td class="text-center"><a href="#"><img src="${BASE_URL}assets/img/products/01.jpg" alt="01" title="01" height="104" width="80"></a></td>
+                        <td class="text-center"><a href="#"><img src="${BASE_URL}assets/img/productDTO/01.jpg" alt="01" title="01" height="104" width="80"></a></td>
                         <td class="text-left product-name"><a href="#">aliquam quaerat voluptatem</a>
                           <div class="quantity float-left w-100">
                             <span class="cart-qty">1 × </span>
@@ -96,8 +96,8 @@
                     </table>
                   </li>
                   <li class="buttons w-100 float-left">
-                    <form action="cart_page.html">
-                      <input class="btn pull-left mt_10 btn-primary btn-rounded w-100" value="View cart" type="submit">
+                    <form action="${BASE_URL}cart">
+                      <input class="btn pull-left mt_10 btn-primary btn-rounded w-100" value="View cart" type="submit" onclick="viewCart()">
                     </form>
                     <form action="checkout_page.html">
                       <input class="btn pull-right mt_10 btn-primary btn-rounded w-100" value="Checkout" type="submit">
@@ -129,31 +129,63 @@
               <!-- Links -->
               <ul class="navbar-nav m-auto justify-content-center">
                 <li class="nav-item dropdown active">
-                  <a class="nav-link dropdown-toggle text-uppercase" href="category.html">
+                  <a class="nav-link text-uppercase" href="#">
                     Home
+                    <span class="sr-only">(current)</span>        </a>
+<%--                  <div class="dropdown-menu mega-menu v-2 z-depth-1 special-color py-3 px-3">--%>
+<%--                    <div class="sub-menu mb-xl-0 mb-4">--%>
+<%--                      <ul class="list-unstyled">--%>
+<%--                        <li>--%>
+<%--                          <a class="menu-item pl-0" href="index.html">--%>
+<%--                            Home                  </a>                </li>--%>
+<%--                        <li>--%>
+<%--                          <a class="menu-item pl-0" href="index2.html">--%>
+<%--                            Home 2                  </a>                </li>--%>
+<%--                        <li>--%>
+<%--                          <a class="menu-item pl-0" href="index3.html">--%>
+<%--                            Home 3                 </a>                </li>--%>
+<%--                        <li>--%>
+<%--                          <a class="menu-item pl-0" href="index4.html">--%>
+<%--                            Home 4                  </a>                </li>--%>
+<%--                        <li>--%>
+<%--                          <a class="menu-item pl-0" href="index5.html">--%>
+<%--                            Home 5                  </a>                </li>--%>
+<%--                      </ul>--%>
+<%--                    </div>--%>
+<%--                  </div>--%>
+                </li>
+
+<%--                shop by series--%>
+
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle text-uppercase" href="#">
+                    Shop by Seires
                     <span class="sr-only">(current)</span>        </a>
                   <div class="dropdown-menu mega-menu v-2 z-depth-1 special-color py-3 px-3">
                     <div class="sub-menu mb-xl-0 mb-4">
                       <ul class="list-unstyled">
                         <li>
                           <a class="menu-item pl-0" href="index.html">
-                            Home 1                  </a>                </li>
+                            Attack on Titan                  </a>                </li>
                         <li>
                           <a class="menu-item pl-0" href="index2.html">
-                            Home 2                  </a>                </li>
+                            Death Note                  </a>                </li>
                         <li>
                           <a class="menu-item pl-0" href="index3.html">
-                            Home 3                 </a>                </li>
+                            Jujutsu Kaisen                 </a>                </li>
                         <li>
                           <a class="menu-item pl-0" href="index4.html">
-                            Home 4                  </a>                </li>
+                            Naruto                  </a>                </li>
                         <li>
                           <a class="menu-item pl-0" href="index5.html">
-                            Home 5                  </a>                </li>
+                            One Piece                  </a>                </li>
                       </ul>
                     </div>
                   </div>
                 </li>
+
+
+
                 <li class="nav-item dropdown mega-dropdown">
                   <a class="nav-link dropdown-toggle text-uppercase" href="category.html">Category</a>
                   <div class="dropdown-menu mega-menu v-2 z-depth-1 special-color py-3 px-3">
@@ -164,7 +196,7 @@
                         <ul class="list-unstyled">
 
                           <li>
-                            <a class="menu-item pl-0" href="filter-toggle.html">
+                            <a class="menu-item pl-0" href="${BASE_URL}filter-toggle.html">
                               filter toggle                  </a>                </li>
                           <li>
                             <a class="menu-item pl-0" href="off-canvas-left.html">
@@ -202,30 +234,30 @@
                   </div>
                 </li>
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle text-uppercase" href="category.html">
+                  <a class="nav-link text-uppercase" href="category.html">
                     Shop
                     <span class="sr-only">(current)</span>        </a>
-                  <div class="dropdown-menu mega-menu v-2 z-depth-1 special-color py-3 px-3">
-                    <div class="sub-menu mb-xl-0 mb-4">
-                      <ul class="list-unstyled">
-                        <li>
-                          <a class="menu-item pl-0" href="product-grid.html">
-                            product grid                </a>                </li>
-                        <li>
-                          <a class="menu-item pl-0" href="product-sticky-right.html">
-                            sticky right                  </a>                </li>
-                        <li>
-                          <a class="menu-item pl-0" href="product-extended-layout.html">
-                            Extended layout                 </a>                </li>
-                        <li>
-                          <a class="menu-item pl-0" href="product-details.html">
-                            Default layout                </a>                </li>
-                        <li>
-                          <a class="menu-item pl-0" href="product-compact.html">
-                            compact layout           </a>                </li>
-                      </ul>
-                    </div>
-                  </div>
+<%--                  <div class="dropdown-menu mega-menu v-2 z-depth-1 special-color py-3 px-3">--%>
+<%--                    <div class="sub-menu mb-xl-0 mb-4">--%>
+<%--                      <ul class="list-unstyled">--%>
+<%--                        <li>--%>
+<%--                          <a class="menu-item pl-0" href="product-grid.html">--%>
+<%--                            product grid                </a>                </li>--%>
+<%--                        <li>--%>
+<%--                          <a class="menu-item pl-0" href="product-sticky-right.html">--%>
+<%--                            sticky right                  </a>                </li>--%>
+<%--                        <li>--%>
+<%--                          <a class="menu-item pl-0" href="product-extended-layout.html">--%>
+<%--                            Extended layout                 </a>                </li>--%>
+<%--                        <li>--%>
+<%--                          <a class="menu-item pl-0" href="product-details.jsp">--%>
+<%--                            Default layout                </a>                </li>--%>
+<%--                        <li>--%>
+<%--                          <a class="menu-item pl-0" href="product-compact.html">--%>
+<%--                            compact layout           </a>                </li>--%>
+<%--                      </ul>--%>
+<%--                    </div>--%>
+<%--                  </div>--%>
                 </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle text-uppercase" href="category.html">Blog</a>
@@ -307,7 +339,7 @@
                       <ul class="list-unstyled">
                         <li>
                           <a class="menu-item pl-0" href="index.html">
-                            Home 1                  </a>                </li>
+                            Home 2                  </a>                </li>
                         <li>
                           <a class="menu-item pl-0" href="index2.html">
                             Home 2                  </a>                </li>
@@ -465,3 +497,9 @@
     </div>
   </div>
 </header>
+
+<script>
+  function viewCart(){
+    alert(sessionStorage.getItem("user_product"));
+  }
+</script>

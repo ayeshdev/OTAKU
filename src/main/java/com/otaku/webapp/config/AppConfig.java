@@ -8,6 +8,8 @@ public class AppConfig extends ResourceConfig {
         packages("com.otaku.webapp.controller");
 
         register(JspMvcFeature.class);
+        register(DependencyBinder.class);
+
         property(JspMvcFeature.TEMPLATE_BASE_PATH,"/WEB-INF/views");
     }
 }

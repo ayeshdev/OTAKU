@@ -11,5 +11,12 @@
         <property name="format_sql">true</property>
 
         <mapping class="com.otaku.webapp.entity.User"/>
+        <mapping class="com.otaku.webapp.entity.Color"/>
+        <mapping class="com.otaku.webapp.entity.Size"/>
+        <mapping class="com.otaku.webapp.entity.Products"/>
+        <mapping class="com.otaku.webapp.entity.Cart"/>
+        <mapping class="com.otaku.webapp.entity.CartItem"/>
+        <mapping class="com.otaku.webapp.entity.Category"/>
+        <mapping class="com.otaku.webapp.entity.Images"/>
     </session-factory>
 </hibernate-configuration>
