@@ -6,6 +6,7 @@ import com.otaku.webapp.dto.LoginDTO;
 import com.otaku.webapp.entity.User;
 import com.otaku.webapp.entity.UserType;
 import com.otaku.webapp.model.UserDetails;
+import com.otaku.webapp.service.Encryption;
 import com.otaku.webapp.service.UserService;
 import com.otaku.webapp.util.HibernateUtil;
 import com.otaku.webapp.util.JwtTokenUtil;
@@ -22,6 +23,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 
 import java.util.Date;
+import java.util.Random;
+import java.util.UUID;
 
 @Path("/login")
 public class LoginController {
@@ -39,7 +42,9 @@ public class LoginController {
     public Response login(LoginDTO loginDTO) {
 
         String email = loginDTO.getEmail();
-        String password = loginDTO.getPassword();
+        String password = Encryption.encrypt(loginDTO.getPassword());
+
+        System.out.println(password);
 
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.openSession();

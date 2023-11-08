@@ -72,28 +72,28 @@
                     <div class="ttbannerblock container text-center">
                         <div class="row">
                             <div class="ttbanner1 ttbanner col-sm-6 col-xs-6 left-to-right hb-animate-element">
-                                <div class="ttbanner-img"><a href="#"><img src="${BASE_URL}assets/img/banner/cms-01.jpg"
-                                                                           alt="cms-01" height="600" width="630"></a>
+                                <div class="ttbanner-img"><a href="#"><img src="${BASE_URL}assets/img/banner/black.jpg"
+                                                                           alt="cms-01" height="1000" width="1000"></a>
                                 </div>
                                 <div class="ttbanner-inner d-inline-block align-top float-none">
                                     <div class="ttbanner-desc float-left w-100">
-                                        <h2 class="ttbanner-heading text-uppercase float-left w-100">Womens</h2>
+                                        <h2 class="ttbanner-heading text-uppercase float-left w-100">Black</h2>
                                         <span class="title text-uppercase float-left w-100 pb-3">collection</span>
-                                        <span class="subtitle float-left w-100 py-20">Et harum quidem rerum facilis est et expedita m libero tempore, cum solut</span>
+                                        <span class="subtitle float-left w-100 py-20">"Elevate Your Anime Style with Our Black T-Shirt Collection!"</span>
                                         <span class="shop-now float-left w-100"><a href="#"
                                                                                    class="d-inline-block align-top float-none btn-primary">Shop Now</a></span>
                                     </div>
                                 </div>
                             </div>
                             <div class="ttbanner2 ttbanner col-sm-6 col-xs-6 right-to-left hb-animate-element">
-                                <div class="ttbanner-img"><a href="#"><img src="${BASE_URL}assets/img/banner/cms-02.jpg"
-                                                                           alt="cms-02" height="600" width="630"></a>
+                                <div class="ttbanner-img"><a href="#"><img src="${BASE_URL}assets/img/banner/white.jpg"
+                                                                           alt="cms-02" height="1000" width="1000"></a>
                                 </div>
                                 <div class="ttbanner-inner d-inline-block align-top float-none">
                                     <div class="ttbanner-desc">
-                                        <h2 class="ttbanner-heading text-uppercase">Men's</h2>
+                                        <h2 class="ttbanner-heading text-uppercase">White</h2>
                                         <span class="title text-uppercase float-left w-100 pb-3">collection</span>
-                                        <span class="subtitle float-left w-100 py-20">Et harum quidem rerum facilis est et expedita m libero tempore, cum solut</span>
+                                        <span class="subtitle float-left w-100 py-20">"Elevate Your Anime Style with Our White T-Shirt Collection!"</span>
                                         <span class="shop-now float-left w-100"><a href="#"
                                                                                    class="d-inline-block align-top float-none btn-primary">Shop Now</a></span>
                                     </div>
@@ -144,72 +144,88 @@
 
                                                 <c:forEach var="product" items="${product}">
 
-                                                <div class="product-layouts">
-                                                    <div class="product-thumb">
-                                                        <div class="image zoom">
-                                                            <a href="product-details/?id=${product.id}">
-                                                                <img src="${BASE_URL}assets/img/products/1.jpg" alt="01"
-                                                                     height="501" width="385"/>
-                                                                <img src="${BASE_URL}assets/img/products/1.jpg" alt="02"
-                                                                     class="second_image img-responsive" height="501"
-                                                                     width="385"/> </a>
-                                                            <ul class="countdown1 countdown">
-                                                                <li><span class="days">00</span>
-                                                                    <p class="days_text">Days</p></li>
-                                                                <li><span class="hours">00</span>
-                                                                    <p class="hours_text">Hours</p></li>
-                                                                <li><span class="minutes">00</span>
-                                                                    <p class="minutes_text">Minutes</p></li>
-                                                                <li><span class="seconds">00</span>
-                                                                    <p class="seconds_text">Seconds</p></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="thumb-description">
-                                                            <div class="caption">
-                                                                <h4 class="product-title text-capitalize"><a
-                                                                        href="${BASE_URL}assets/product-details.html">${product.name}</a></h4>
+                                                    <div class="product-layouts">
+                                                        <div class="product-thumb">
+                                                            <div class="image zoom">
+                                                                <a href="product-details/?id=${product.id}">
+
+                                                                    <c:forEach var="prod_imgs"
+                                                                               items="${product.images[0]}">
+                                                                        <img src="${BASE_URL}${prod_imgs}" alt="01"
+                                                                             height="501" width="385"/>
+                                                                    </c:forEach>
+
+                                                                    <c:forEach var="prod_imgs"
+                                                                               items="${product.images[1]}">
+                                                                        <img src="${BASE_URL}${prod_imgs}"
+                                                                             alt="02"
+                                                                             class="second_image img-responsive"
+                                                                             height="501"
+                                                                             width="385"/>
+                                                                    </c:forEach>
+                                                                </a>
+                                                                <ul class="countdown1 countdown">
+                                                                    <li><span class="days">00</span>
+                                                                        <p class="days_text">Days</p></li>
+                                                                    <li><span class="hours">00</span>
+                                                                        <p class="hours_text">Hours</p></li>
+                                                                    <li><span class="minutes">00</span>
+                                                                        <p class="minutes_text">Minutes</p></li>
+                                                                    <li><span class="seconds">00</span>
+                                                                        <p class="seconds_text">Seconds</p></li>
+                                                                </ul>
                                                             </div>
-                                                            <div class="rating">
-                                                                <div class="product-ratings d-inline-block align-middle">
-                                                                    <span class="fa fa-stack"><i class="material-icons">star</i></span>
-                                                                    <span class="fa fa-stack"><i class="material-icons">star</i></span>
-                                                                    <span class="fa fa-stack"><i class="material-icons">star</i></span>
-                                                                    <span class="fa fa-stack"><i
-                                                                            class="material-icons off">star</i></span>
-                                                                    <span class="fa fa-stack"><i
-                                                                            class="material-icons off">star</i></span>
+                                                            <div class="thumb-description">
+                                                                <div class="caption">
+                                                                    <h4 class="product-title text-capitalize"><a
+                                                                            href="${BASE_URL}assets/product-details.html">${product.name}</a>
+                                                                    </h4>
                                                                 </div>
-                                                            </div>
-                                                            <div class="price">
-                                                                <div class="regular-price">${product.price}</div>
-                                                                <div class="old-price">$150.00</div>
-                                                            </div>
-                                                            <div class="button-wrapper">
-                                                                <div class="button-group text-center">
-                                                                    <button type="button"
-                                                                            class="btn btn-primary btn-cart"
-                                                                            data-target="#cart-pop" data-toggle="modal"
-                                                                            disabled="disabled"><i
-                                                                            class="material-icons">shopping_cart</i><span>Add to cart</span>
-                                                                    </button>
-                                                                    <a href="wishlist.html"
-                                                                       class="btn btn-primary btn-wishlist"><i
-                                                                            class="material-icons">favorite</i><span>wishlist</span></a>
-                                                                    <button type="button"
-                                                                            class="btn btn-primary btn-compare"><i
-                                                                            class="material-icons">equalizer</i><span>Compare</span>
-                                                                    </button>
-                                                                    <button type="button"
-                                                                            class="btn btn-primary btn-quickview"
-                                                                            data-toggle="modal"
-                                                                            data-target="#product_view"><i
-                                                                            class="material-icons">visibility</i><span>Quick View</span>
-                                                                    </button>
+                                                                <div class="rating">
+                                                                    <div class="product-ratings d-inline-block align-middle">
+                                                                        <span class="fa fa-stack"><i
+                                                                                class="material-icons">star</i></span>
+                                                                        <span class="fa fa-stack"><i
+                                                                                class="material-icons">star</i></span>
+                                                                        <span class="fa fa-stack"><i
+                                                                                class="material-icons">star</i></span>
+                                                                        <span class="fa fa-stack"><i
+                                                                                class="material-icons off">star</i></span>
+                                                                        <span class="fa fa-stack"><i
+                                                                                class="material-icons off">star</i></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="price">
+                                                                    <div class="regular-price">${product.price}</div>
+                                                                    <div class="old-price">$150.00</div>
+                                                                </div>
+                                                                <div class="button-wrapper">
+                                                                    <div class="button-group text-center">
+                                                                        <button type="button"
+                                                                                class="btn btn-primary btn-cart"
+                                                                                data-target="#cart-pop"
+                                                                                data-toggle="modal"
+                                                                                disabled="disabled"><i
+                                                                                class="material-icons">shopping_cart</i><span>Add to cart</span>
+                                                                        </button>
+                                                                        <a href="wishlist.html"
+                                                                           class="btn btn-primary btn-wishlist"><i
+                                                                                class="material-icons">favorite</i><span>wishlist</span></a>
+                                                                        <button type="button"
+                                                                                class="btn btn-primary btn-compare"><i
+                                                                                class="material-icons">equalizer</i><span>Compare</span>
+                                                                        </button>
+                                                                        <button type="button"
+                                                                                class="btn btn-primary btn-quickview"
+                                                                                data-toggle="modal"
+                                                                                data-target="#product_view"><i
+                                                                                class="material-icons">visibility</i><span>Quick View</span>
+                                                                        </button>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
                                                 </c:forEach>
 
                                                     <%--                        <div class="product-layouts">--%>
@@ -1392,14 +1408,11 @@
                                                                                 height="120" width="120"/></div>
                                             <div class="testimonial-content">
                                                 <div class="testimonial-desc">
-                                                    <p>Duis faucibus enim vitae nunc molestie, nec facilisis arcu
-                                                        pulvinar. Nullam mattis arcu convallis, bibendum dui ac, laoreet
-                                                        est.Vivamus interdum egastas rutrum. Quisque laoreet ante sed
-                                                        placerat imperdiet.
+                                                    <p>"I've been on the hunt for high-quality anime t-shirts, and I finally found a reliable source in this company. The shirts fit perfectly, and the prints are vibrant and durable. The range of anime themes they offer is impressive. The only reason I'm not giving them five stars is that I'd love to see even more classic series in their collection. Keep up the great work!"
                                                     </p>
                                                 </div>
                                                 <div class="testimonial-user-title">
-                                                    <h4>John Duff</h4>
+                                                    <h4> Kenji K.</h4>
                                                     <div class="user-designation">CEO</div>
                                                 </div>
                                             </div>
@@ -1412,14 +1425,11 @@
                                                                                 height="120" width="120"/></div>
                                             <div class="testimonial-content">
                                                 <div class="testimonial-desc">
-                                                    <p>Duis faucibus enim vitae nunc molestie, nec facilisis arcu
-                                                        pulvinar. Nullam mattis arcu convallis, bibendum dui ac, laoreet
-                                                        est.Vivamus interdum egastas rutrum. Quisque laoreet ante sed
-                                                        placerat imperdiet.
+                                                    <p>"As a lifelong Otaku, I've collected anime shirts from various sources, but this company is an absolute gem! The quality of their t-shirts is top-notch, and the designs are so unique. I can't resist buying a new one every time they release a new collection. Plus, their customer service is outstanding. They've won my loyalty!"
                                                     </p>
                                                 </div>
                                                 <div class="testimonial-user-title">
-                                                    <h4>Nazli dof</h4>
+                                                    <h4>Emily S.</h4>
                                                     <div class="user-designation">Marketing Manager</div>
                                                 </div>
                                             </div>
@@ -1432,14 +1442,11 @@
                                                                                 height="120" width="120"/></div>
                                             <div class="testimonial-content">
                                                 <div class="testimonial-desc">
-                                                    <p>Duis faucibus enim vitae nunc molestie, nec facilisis arcu
-                                                        pulvinar. Nullam mattis arcu convallis, bibendum dui ac, laoreet
-                                                        est.Vivamus interdum egastas rutrum. Quisque laoreet ante sed
-                                                        placerat imperdiet.
+                                                    <p>"I'm a self-proclaimed anime fanatic, and this company is my go-to place for all things anime-related. The t-shirts are not just cool; they're comfortable too. What really sets them apart is their commitment to customer satisfaction. I had an issue with an order once, and their support team resolved it quickly and efficiently. I've recommended them to all my fellow Otaku friends!"
                                                     </p>
                                                 </div>
                                                 <div class="testimonial-user-title">
-                                                    <h4>Aly Vefa</h4>
+                                                    <h4>Sarah L.</h4>
                                                     <div class="user-designation">Sales Exuctive</div>
                                                 </div>
                                             </div>
@@ -1454,11 +1461,11 @@
                             <div class="row">
                                 <div class="ttbanner1 ttbanner col-sm-6 col-xs-6">
                                     <div class="ttbanner-img"><a href="#"><img
-                                            src="${BASE_URL}assets/img/banner/cms-03.jpg" alt="cms-03" height="600"
+                                            src="${BASE_URL}assets/img/banner/aot.jpg" alt="cms-03" height="600"
                                             width="400"></a></div>
                                     <div class="ttbanner-inner">
                                         <div class="ttbanner-desc text-center">
-                                            <span class="title text-uppercase">summer shop</span>
+                                            <span class="title text-uppercase">aot shop</span>
                                             <span class="subtitle text-uppercase py-20">up to 70% off</span>
                                             <span class="shop-now text-capitalize"><a href="#" class="btn-primary">shop now</a></span>
                                         </div>
@@ -1466,11 +1473,11 @@
                                 </div>
                                 <div class="ttbanner2 ttbanner col-sm-6">
                                     <div class="ttbanner-img"><a href="#"><img
-                                            src="${BASE_URL}assets/img/banner/cms-04.jpg" alt="cms-04" height="600"
+                                            src="${BASE_URL}assets/img/banner/naruto.jpg" alt="cms-04" height="600"
                                             width="400"></a></div>
                                     <div class="ttbanner-inner">
                                         <div class="ttbanner-desc text-center">
-                                            <span class="title text-uppercase">winter shop</span>
+                                            <span class="title text-uppercase">naruto shop</span>
                                             <span class="subtitle text-uppercase py-20">up to 70% off</span>
                                             <span class="shop-now text-capitalize"><a href="#" class="btn-primary">shop now</a></span>
                                         </div>

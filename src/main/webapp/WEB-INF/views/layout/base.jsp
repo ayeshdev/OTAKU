@@ -29,7 +29,7 @@
     <link href="${BASE_URL}assets/css/animate.css" rel="stylesheet">
     <link href="${BASE_URL}assets/css/owl-carousel.css" rel="stylesheet">
     <link href="${BASE_URL}assets/css/lightbox.css" rel="stylesheet">
-
+    <script type="text/javascript" src="https://www.payhere.lk/lib/payhere.js"></script>
     <!-- Custom styles for this template -->
 </head>
 
@@ -351,6 +351,9 @@
 <script src="${BASE_URL}assets/js/imagesloaded.pkgd.min.js"></script>
 <script src="${BASE_URL}assets/js/jquery.zoom.min.js"></script>
 <script src="${BASE_URL}assets/js/jquery.lazy.min.js"></script>
+<script src="${BASE_URL}assets/js/payment.js"></script>
+<script type="text/javascript" src="https://www.payhere.lk/lib/payhere.js"></script>
+
 
 <script type="text/javascript">
     let e = document.getElementsByClassName('sign-up').item(0).addEventListener('click',()=>{
@@ -388,7 +391,7 @@
         }).then(response => response.text())
             .then(text=>{
                 if(text === "USER"){
-                    alert("USER")
+                    alert("Welcome")
                 }else if(text === "ADMIN"){
                     window.location = 'admin-panel';
                 }

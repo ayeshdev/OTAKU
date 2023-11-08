@@ -1,10 +1,9 @@
-<%@ page import="com.otaku.webapp.entity.Products" %>
 <%@ page import="com.otaku.webapp.util.HibernateUtil" %>
 <%@ page import="org.hibernate.SessionFactory" %>
 <%@ page import="org.hibernate.Session" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.otaku.webapp.entity.Size" %>
-<%@ page import="com.otaku.webapp.entity.Color" %>
+<%@ page import="com.otaku.webapp.util.JwtTokenUtil" %>
+<%@ page import="com.otaku.webapp.entity.*" %>
 
 <%@ taglib prefix="layout" uri="http://callidora.lk/jsp/template-inheritance" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -12,34 +11,74 @@
 
 <style>
     input[type=radio] {
-    appearance: none;
-    padding: 10px;
-    background-color: yellow;
-    border-radius:50%;
-}
-input[type=radio]:checked {
-    background-color: blue;
-}
+        appearance: none;
+        padding: 10px;
+        background-color: yellow;
+        border-radius: 50%;
+    }
+
+    input[type=radio]:checked {
+        background-color: blue;
+    }
 </style>
 
 <%
+
+//    response.setIntHeader("Refresh", 5);
+
     SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
     Session sessionData = sessionFactory.openSession();
+
+    Cookie cookie = null;
+    Cookie[] cookies = null;
+
+    String cookie_value = "";
+
+    String email = "";
+
+    cookies = request.getCookies();
+
+    for (int i = 0; i < cookies.length; i++) {
+        cookie = cookies[i];
+        if (cookie.getName().equals("token")) {
+            cookie_value = cookie.getValue();
+        }
+    }
+
+    //get user email using token
+    if (cookie_value != "") {
+        JwtTokenUtil jwtTokenUtil = new JwtTokenUtil();
+        email = jwtTokenUtil.getUsernameFromToken(cookie_value);
+    }
+
+    //search user
+
+    User user = sessionData.createQuery("select u from User u where u.email =: email", User.class).setParameter("email", email).getSingleResult();
+    Long user_id = user.getId();
+
+    System.out.println(user_id);
+
+    pageContext.setAttribute("user_id",user_id);
+
+    List<Cart> cart = sessionData.createQuery("select c from Cart c where c.user=:user", Cart.class).setParameter("user", user).getResultList();
+    pageContext.setAttribute("cart", cart);
 
     String id = request.getParameter("id");
     System.out.println(id);
 
-    session.setAttribute("user",1);
+    session.setAttribute("user", 1);
 
     Products product = sessionData.createQuery("select pd from Products pd where pd.id=:p_id", Products.class).setParameter("p_id", id).getSingleResult();
     pageContext.setAttribute("product", product);
+
+    List<Products> products = sessionData.createQuery("select pds from Products pds", Products.class).getResultList();
+    pageContext.setAttribute("products", products);
 
     List<Size> sizes = sessionData.createQuery("select s from Size s").getResultList();
     pageContext.setAttribute("sizes", sizes);
 
     List<Color> colors = sessionData.createQuery("select c from Color c").getResultList();
     pageContext.setAttribute("colors", colors);
-
 
 %>
 
@@ -49,7 +88,7 @@ input[type=radio]:checked {
         <body id="product">
 
         <nav aria-label="breadcrumb" class="w-100 float-left">
-            <ol class="breadcrumb parallax justify-content-center" data-source-url="img/banner/parallax.jpg"
+            <ol class="breadcrumb parallax justify-content-center" data-source-url="${BASE_URL}assets/img/banner/parallax.jpg"
                 style="background-image: url(&quot;img/banner/parallax.jpg&quot;); background-position: 50% 0.809717%;">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Shop</li>
@@ -64,35 +103,59 @@ input[type=radio]:checked {
                             <div class="tab-pane active" id="product-01" role="tabpanel"
                                  aria-labelledby="product-tab-01">
                                 <div class="single-img img-full">
-                                    <a href="${BASE_URL}img/productDTO/01.jpg"><img
-                                            src="${BASE_URL}/assets/img/productDTO/01.jpg"
-                                            class="img-fluid zoomImg" alt=""></a>
+                                    <a href="${BASE_URL}img/productDTO/01.jpg">
+
+                                        <c:forEach var="prod_imgs"
+                                                   items="${product.images[0]}">
+                                            <img
+                                                    src="${BASE_URL}${prod_imgs}"
+                                                    class="img-fluid zoomImg" alt="">
+                                        </c:forEach>
+                                    </a>
                                 </div>
                             </div>
                             <div class="tab-pane" id="product-02" role="tabpanel" aria-labelledby="product-tab-02">
                                 <div class="single-img">
-                                    <a href="img/productDTO/02.jpg"><img src="${BASE_URL}/img/productDTO/02.jpg"
-                                                                       class="img-fluid"
-                                                                       alt=""></a>
+                                    <a href="img/productDTO/02.jpg">
+
+
+                                        <c:forEach var="prod_imgs"
+                                                   items="${product.images[1]}">
+                                            <img
+                                                    src="${BASE_URL}${prod_imgs}"
+                                                    class="img-fluid zoomImg" alt="">
+                                        </c:forEach>
+                                    </a>
                                 </div>
                             </div>
                             <div class="tab-pane" id="product-03" role="tabpanel" aria-labelledby="product-tab-03">
                                 <div class="single-img">
-                                    <a href="img/productDTO/03.jpg"><img src="${BASE_URL}/img/productDTO/03.jpg"
-                                                                       class="img-fluid"
-                                                                       alt=""></a>
+                                    <a href="img/productDTO/03.jpg"><c:forEach var="prod_imgs"
+                                                                               items="${product.images[2]}">
+                                        <img
+                                                src="${BASE_URL}${prod_imgs}"
+                                                class="img-fluid zoomImg" alt="">
+                                    </c:forEach></a>
                                 </div>
                             </div>
                             <div class="tab-pane" id="product-04" role="tabpanel" aria-labelledby="product-tab-04">
                                 <div class="single-img">
-                                    <a href="img/productDTO/04.jpg"><img src="img/productDTO/04.jpg" class="img-fluid"
-                                                                       alt=""></a>
+                                    <a href="img/productDTO/04.jpg"><c:forEach var="prod_imgs"
+                                                                               items="${product.images[3]}">
+                                        <img
+                                                src="${BASE_URL}${prod_imgs}"
+                                                class="img-fluid zoomImg" alt="">
+                                    </c:forEach></a>
                                 </div>
                             </div>
                             <div class="tab-pane" id="product-05" role="tabpanel" aria-labelledby="product-tab-05">
                                 <div class="single-img">
-                                    <a href="img/productDTO/05.jpg"><img src="img/productDTO/05.jpg" class="img-fluid"
-                                                                       alt=""></a>
+                                    <a href="img/productDTO/05.jpg"><c:forEach var="prod_imgs"
+                                                                               items="${product.images[4]}">
+                                        <img
+                                                src="${BASE_URL}${prod_imgs}"
+                                                class="img-fluid zoomImg" alt="">
+                                    </c:forEach></a>
                                 </div>
                             </div>
                         </div>
@@ -100,24 +163,49 @@ input[type=radio]:checked {
                             <div class="nav-add small-image-slider-single-product-tabstyle-3 owl-carousel"
                                  role="tablist">
                                 <div class="single-small-image img-full">
-                                    <a data-toggle="tab" id="product-tab-01" href="#product-01" class="img active"><img
-                                            src="img/productDTO/01.jpg" class="img-fluid" alt=""></a>
+                                    <a data-toggle="tab" id="product-tab-01" href="#product-01"
+                                       class="img active"><c:forEach var="prod_imgs"
+                                                                     items="${product.images[0]}">
+                                        <img
+                                                src="${BASE_URL}${prod_imgs}"
+                                                class="img-fluid zoomImg" alt="">
+                                    </c:forEach></a>
                                 </div>
                                 <div class="single-small-image img-full">
-                                    <a data-toggle="tab" id="product-tab-02" href="#product-02" class="img"><img
-                                            src="img/productDTO/02.jpg" class="img-fluid" alt=""></a>
+                                    <a data-toggle="tab" id="product-tab-02" href="#product-02" class="img"><c:forEach
+                                            var="prod_imgs"
+                                            items="${product.images[1]}">
+                                        <img
+                                                src="${BASE_URL}${prod_imgs}"
+                                                class="img-fluid zoomImg" alt="">
+                                    </c:forEach></a>
                                 </div>
                                 <div class="single-small-image img-full">
-                                    <a data-toggle="tab" id="product-tab-03" href="#product-03" class="img"><img
-                                            src="img/productDTO/03.jpg" class="img-fluid" alt=""></a>
+                                    <a data-toggle="tab" id="product-tab-03" href="#product-03" class="img"><c:forEach
+                                            var="prod_imgs"
+                                            items="${product.images[2]}">
+                                        <img
+                                                src="${BASE_URL}${prod_imgs}"
+                                                class="img-fluid zoomImg" alt="">
+                                    </c:forEach></a>
                                 </div>
                                 <div class="single-small-image img-full">
-                                    <a data-toggle="tab" id="product-tab-04" href="#product-04" class="img"><img
-                                            src="img/productDTO/04.jpg" class="img-fluid" alt=""></a>
+                                    <a data-toggle="tab" id="product-tab-04" href="#product-04" class="img"><c:forEach
+                                            var="prod_imgs"
+                                            items="${product.images[3]}">
+                                        <img
+                                                src="${BASE_URL}${prod_imgs}"
+                                                class="img-fluid zoomImg" alt="">
+                                    </c:forEach></a>
                                 </div>
                                 <div class="single-small-image img-full">
-                                    <a data-toggle="tab" id="product-tab-05" href="#product-05" class="img"><img
-                                            src="img/productDTO/05.jpg" class="img-fluid" alt=""></a>
+                                    <a data-toggle="tab" id="product-tab-05" href="#product-05" class="img"><c:forEach
+                                            var="prod_imgs"
+                                            items="${product.images[4]}">
+                                        <img
+                                                src="${BASE_URL}${prod_imgs}"
+                                                class="img-fluid zoomImg" alt="">
+                                    </c:forEach></a>
                                 </div>
                             </div>
                         </div>
@@ -169,30 +257,30 @@ input[type=radio]:checked {
                                         </c:forEach>
                                     </select>
                                 </div>
-                                <div class="color-option d-flex align-items-center">
-                                    <h5>color :</h5>
-                                    <ul class="color-categories">
+<%--                                <div class="color-option d-flex align-items-center">--%>
+<%--                                    <h5>color :</h5>--%>
+<%--                                    <ul class="color-categories">--%>
 
-                                        <c:forEach var="colors" items="${colors}">
-                                            <li class="active" style="border: none">
-                                                <p>${colors.name}</p>
-                                                <input type="radio" name="color" value="${colors.id}"/>
-                                            </li>
-                                        </c:forEach>
-                                    </ul>
-                                </div>
+<%--                                        <c:forEach var="colors" items="${colors}">--%>
+<%--                                            <li class="active" style="border: none">--%>
+<%--                                                <p>${colors.name}</p>--%>
+<%--                                                <input type="radio" name="color" value="${colors.id}"/>--%>
+<%--                                            </li>--%>
+<%--                                        </c:forEach>--%>
+<%--                                    </ul>--%>
+<%--                                </div>--%>
                             </div>
                             <div class="btn-cart d-flex align-items-center float-left w-100">
                                 <h5>qty:</h5>
                                 <input value="1" id="qty" type="number">
 
-<%--                                |||||||||||||||||||||||||||BUTTON||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||--%>
+                                    <%--                                |||||||||||||||||||||||||||BUTTON||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||--%>
 
 
                                 <button type="button" class="btn btn-primary btn-cart m-0" data-target="#cart-pop"
-                                        data-toggle="modal" onclick="addToCart()"><i class="material-icons">shopping_cart</i> Add To Cart
+                                        data-toggle="modal" onclick="addToCart()"><i class="material-icons">shopping_cart</i>
+                                    Add To Cart
                                 </button>
-
 
 
                             </div>
@@ -352,272 +440,90 @@ input[type=radio]:checked {
             <div class="container">
                 <div class="row">
                     <div class="tt-title d-inline-block float-none w-100 text-center">You might also like</div>
-                    <div class="product-accessories-content productDTO grid owl-carousel">
-                        <div class="product-layouts">
-                            <div class="product-thumb">
-                                <div class="image zoom">
-                                    <a href="product-details.html">
-                                        <img src="img/productDTO/01.jpg" alt="01"/>
-                                        <img src="img/productDTO/02.jpg" alt="02" class="second_image img-responsive"/>
-                                    </a></div>
-                                <div class="thumb-description">
-                                    <div class="caption">
-                                        <h4 class="product-title text-capitalize"><a href="product-details.html">aliquam
-                                            quaerat voluptatem</a></h4>
-                                    </div>
-                                    <div class="rating">
-                                        <div class="product-ratings d-inline-block align-middle">
-                                            <span class="fa fa-stack"><i class="material-icons">star</i></span>
-                                            <span class="fa fa-stack"><i class="material-icons">star</i></span>
-                                            <span class="fa fa-stack"><i class="material-icons">star</i></span>
-                                            <span class="fa fa-stack"><i class="material-icons off">star</i></span>
-                                            <span class="fa fa-stack"><i class="material-icons off">star</i></span>
+                    <div class="tab-pane active float-left w-100" id="ttfeatured-main" role="tabpanel"
+                         aria-labelledby="featured-tab">
+                        <section id="ttfeatured" class="ttfeatured-products">
+                            <div class="ttfeatured-content products grid owl-carousel" id="owl1">
+
+
+                                <c:forEach var="products" items="${products}">
+
+                                    <div class="product-layouts">
+                                        <div class="product-thumb">
+                                            <div class="image zoom">
+                                                <a href="${BASE_URL}product-details/?id=${products.id}">
+
+                                                    <c:forEach var="prod_imgs"
+                                                               items="${products.images[0]}">
+                                                        <img src="${BASE_URL}${prod_imgs}" alt="01"
+                                                             height="501" width="385"/>
+                                                    </c:forEach>
+
+                                                    <c:forEach var="prod_imgs"
+                                                               items="${products.images[1]}">
+                                                        <img src="${BASE_URL}${prod_imgs}"
+                                                             alt="02"
+                                                             class="second_image img-responsive"
+                                                             height="501"
+                                                             width="385"/>
+                                                    </c:forEach>
+                                                </a>
+                                            </div>
+                                            <div class="thumb-description">
+                                                <div class="caption">
+                                                    <h4 class="product-title text-capitalize"><a
+                                                            href="${BASE_URL}assets/product-details.html">${product.name}</a>
+                                                    </h4>
+                                                </div>
+                                                <div class="rating">
+                                                    <div class="product-ratings d-inline-block align-middle">
+                                                                        <span class="fa fa-stack"><i
+                                                                                class="material-icons">star</i></span>
+                                                        <span class="fa fa-stack"><i
+                                                                class="material-icons">star</i></span>
+                                                        <span class="fa fa-stack"><i
+                                                                class="material-icons">star</i></span>
+                                                        <span class="fa fa-stack"><i
+                                                                class="material-icons off">star</i></span>
+                                                        <span class="fa fa-stack"><i
+                                                                class="material-icons off">star</i></span>
+                                                    </div>
+                                                </div>
+                                                <div class="price">
+                                                    <div class="regular-price">${product.price}</div>
+                                                    <div class="old-price">$150.00</div>
+                                                </div>
+                                                <div class="button-wrapper">
+                                                    <div class="button-group text-center">
+                                                        <button type="button"
+                                                                class="btn btn-primary btn-cart"
+                                                                data-target="#cart-pop"
+                                                                data-toggle="modal"
+                                                                disabled="disabled"><i
+                                                                class="material-icons">shopping_cart</i><span>Add to cart</span>
+                                                        </button>
+                                                        <a href="wishlist.html"
+                                                           class="btn btn-primary btn-wishlist"><i
+                                                                class="material-icons">favorite</i><span>wishlist</span></a>
+                                                        <button type="button"
+                                                                class="btn btn-primary btn-compare"><i
+                                                                class="material-icons">equalizer</i><span>Compare</span>
+                                                        </button>
+                                                        <button type="button"
+                                                                class="btn btn-primary btn-quickview"
+                                                                data-toggle="modal"
+                                                                data-target="#product_view"><i
+                                                                class="material-icons">visibility</i><span>Quick View</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="price">
-                                        <div class="regular-price">$100.00</div>
-                                        <div class="old-price">$150.00</div>
-                                    </div>
-                                    <div class="button-wrapper">
-                                        <div class="button-group text-center">
-                                            <button type="button" class="btn btn-primary btn-cart"
-                                                    data-target="#cart-pop" data-toggle="modal"><i
-                                                    class="material-icons">shopping_cart</i><span>Add to cart</span>
-                                            </button>
-                                            <a href="wishlist.html" class="btn btn-primary btn-wishlist"><i
-                                                    class="material-icons">favorite</i><span>wishlist</span></a>
-                                            <button type="button" class="btn btn-primary btn-compare"><i
-                                                    class="material-icons">equalizer</i><span>Compare</span></button>
-                                            <button type="button" class="btn btn-primary btn-quickview"
-                                                    data-toggle="modal" data-target="#product_view"><i
-                                                    class="material-icons">visibility</i><span>Quick View</span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
+                                </c:forEach>
+
                             </div>
-                        </div>
-                        <div class="product-layouts">
-                            <div class="product-thumb">
-                                <div class="image zoom">
-                                    <a href="product-details.html">
-                                        <img src="img/productDTO/02.jpg" alt="02"/>
-                                        <img src="img/productDTO/03.jpg" alt="03" class="second_image img-responsive"/>
-                                    </a></div>
-                                <div class="thumb-description">
-                                    <div class="caption">
-                                        <h4 class="product-title text-capitalize"><a href="product-details.html">aspetur
-                                            autodit autfugit</a></h4>
-                                    </div>
-                                    <div class="rating">
-                                        <div class="product-ratings d-inline-block align-middle">
-                                            <span class="fa fa-stack"><i class="material-icons">star</i></span>
-                                            <span class="fa fa-stack"><i class="material-icons">star</i></span>
-                                            <span class="fa fa-stack"><i class="material-icons">star</i></span>
-                                            <span class="fa fa-stack"><i class="material-icons off">star</i></span>
-                                            <span class="fa fa-stack"><i class="material-icons off">star</i></span>
-                                        </div>
-                                    </div>
-                                    <div class="price">
-                                        <div class="regular-price">$100.00</div>
-                                        <div class="old-price">$150.00</div>
-                                    </div>
-                                    <div class="button-wrapper">
-                                        <div class="button-group text-center">
-                                            <button type="button" class="btn btn-primary btn-cart"
-                                                    data-target="#cart-pop" data-toggle="modal"><i
-                                                    class="material-icons">shopping_cart</i><span>Add to cart</span>
-                                            </button>
-                                            <a href="wishlist.html" class="btn btn-primary btn-wishlist"><i
-                                                    class="material-icons">favorite</i><span>wishlist</span></a>
-                                            <button type="button" class="btn btn-primary btn-compare"><i
-                                                    class="material-icons">equalizer</i><span>Compare</span></button>
-                                            <button type="button" class="btn btn-primary btn-quickview"
-                                                    data-toggle="modal" data-target="#product_view"><i
-                                                    class="material-icons">visibility</i><span>Quick View</span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-layouts">
-                            <div class="product-thumb">
-                                <div class="image zoom">
-                                    <a href="product-details.html">
-                                        <img src="img/productDTO/03.jpg" alt="03"/>
-                                        <img src="img/productDTO/04.jpg" alt="04" class="second_image img-responsive"/>
-                                    </a>
-                                </div>
-                                <div class="thumb-description">
-                                    <div class="caption">
-                                        <h4 class="product-title text-capitalize"><a href="product-details.html">magni
-                                            dolores eosquies</a></h4>
-                                    </div>
-                                    <div class="rating">
-                                        <div class="product-ratings d-inline-block align-middle">
-                                            <span class="fa fa-stack"><i class="material-icons">star</i></span>
-                                            <span class="fa fa-stack"><i class="material-icons">star</i></span>
-                                            <span class="fa fa-stack"><i class="material-icons">star</i></span>
-                                            <span class="fa fa-stack"><i class="material-icons off">star</i></span>
-                                            <span class="fa fa-stack"><i class="material-icons off">star</i></span>
-                                        </div>
-                                    </div>
-                                    <div class="price">
-                                        <div class="regular-price">$100.00</div>
-                                        <div class="old-price">$150.00</div>
-                                    </div>
-                                    <div class="button-wrapper">
-                                        <div class="button-group text-center">
-                                            <button type="button" class="btn btn-primary btn-cart"
-                                                    data-target="#cart-pop" data-toggle="modal"><i
-                                                    class="material-icons">shopping_cart</i><span>Add to cart</span>
-                                            </button>
-                                            <a href="wishlist.html" class="btn btn-primary btn-wishlist"><i
-                                                    class="material-icons">favorite</i><span>wishlist</span></a>
-                                            <button type="button" class="btn btn-primary btn-compare"><i
-                                                    class="material-icons">equalizer</i><span>Compare</span></button>
-                                            <button type="button" class="btn btn-primary btn-quickview"
-                                                    data-toggle="modal" data-target="#product_view"><i
-                                                    class="material-icons">visibility</i><span>Quick View</span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-layouts">
-                            <div class="product-thumb">
-                                <div class="image zoom">
-                                    <a href="product-details.html">
-                                        <img src="img/productDTO/04.jpg" alt="04"/>
-                                        <img src="img/productDTO/05.jpg" alt="05" class="second_image img-responsive"/>
-                                    </a></div>
-                                <div class="thumb-description">
-                                    <div class="caption">
-                                        <h4 class="product-title text-capitalize"><a href="product-details.html">voluptas
-                                            nulla pariatur</a></h4>
-                                    </div>
-                                    <div class="rating">
-                                        <div class="product-ratings d-inline-block align-middle">
-                                            <span class="fa fa-stack"><i class="material-icons">star</i></span>
-                                            <span class="fa fa-stack"><i class="material-icons">star</i></span>
-                                            <span class="fa fa-stack"><i class="material-icons">star</i></span>
-                                            <span class="fa fa-stack"><i class="material-icons off">star</i></span>
-                                            <span class="fa fa-stack"><i class="material-icons off">star</i></span>
-                                        </div>
-                                    </div>
-                                    <div class="price">
-                                        <div class="regular-price">$100.00</div>
-                                        <div class="old-price">$150.00</div>
-                                    </div>
-                                    <div class="button-wrapper">
-                                        <div class="button-group text-center">
-                                            <button type="button" class="btn btn-primary btn-cart"
-                                                    data-target="#cart-pop" data-toggle="modal"><i
-                                                    class="material-icons">shopping_cart</i><span>Add to cart</span>
-                                            </button>
-                                            <a href="wishlist.html" class="btn btn-primary btn-wishlist"><i
-                                                    class="material-icons">favorite</i><span>wishlist</span></a>
-                                            <button type="button" class="btn btn-primary btn-compare"><i
-                                                    class="material-icons">equalizer</i><span>Compare</span></button>
-                                            <button type="button" class="btn btn-primary btn-quickview"
-                                                    data-toggle="modal" data-target="#product_view"><i
-                                                    class="material-icons">visibility</i><span>Quick View</span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-layouts">
-                            <div class="product-thumb">
-                                <div class="image zoom">
-                                    <a href="product-details.html">
-                                        <img src="img/productDTO/05.jpg" alt="05"/>
-                                        <img src="img/productDTO/06.jpg" alt="06" class="second_image img-responsive"/>
-                                    </a></div>
-                                <div class="thumb-description">
-                                    <div class="caption">
-                                        <h4 class="product-title text-capitalize"><a href="product-details.html">aliquam
-                                            quat voluptatem</a></h4>
-                                    </div>
-                                    <div class="rating">
-                                        <div class="product-ratings d-inline-block align-middle">
-                                            <span class="fa fa-stack"><i class="material-icons">star</i></span>
-                                            <span class="fa fa-stack"><i class="material-icons">star</i></span>
-                                            <span class="fa fa-stack"><i class="material-icons">star</i></span>
-                                            <span class="fa fa-stack"><i class="material-icons off">star</i></span>
-                                            <span class="fa fa-stack"><i class="material-icons off">star</i></span>
-                                        </div>
-                                    </div>
-                                    <div class="price">
-                                        <div class="regular-price">$100.00</div>
-                                        <div class="old-price">$150.00</div>
-                                    </div>
-                                    <div class="button-wrapper">
-                                        <div class="button-group text-center">
-                                            <button type="button" class="btn btn-primary btn-cart"
-                                                    data-target="#cart-pop" data-toggle="modal"><i
-                                                    class="material-icons">shopping_cart</i><span>Add to cart</span>
-                                            </button>
-                                            <a href="wishlist.html" class="btn btn-primary btn-wishlist"><i
-                                                    class="material-icons">favorite</i><span>wishlist</span></a>
-                                            <button type="button" class="btn btn-primary btn-compare"><i
-                                                    class="material-icons">equalizer</i><span>Compare</span></button>
-                                            <button type="button" class="btn btn-primary btn-quickview"
-                                                    data-toggle="modal" data-target="#product_view"><i
-                                                    class="material-icons">visibility</i><span>Quick View</span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-layouts">
-                            <div class="product-thumb">
-                                <div class="image zoom">
-                                    <a href="product-details.html">
-                                        <img src="img/productDTO/06.jpg" alt="06"/>
-                                        <img src="img/productDTO/07.jpg" alt="07" class="second_image img-responsive"/>
-                                    </a></div>
-                                <div class="thumb-description">
-                                    <div class="caption">
-                                        <h4 class="product-title text-capitalize"><a href="product-details.html">voluptas
-                                            sit aspernatur</a></h4>
-                                    </div>
-                                    <div class="rating">
-                                        <div class="product-ratings d-inline-block align-middle">
-                                            <span class="fa fa-stack"><i class="material-icons">star</i></span>
-                                            <span class="fa fa-stack"><i class="material-icons">star</i></span>
-                                            <span class="fa fa-stack"><i class="material-icons">star</i></span>
-                                            <span class="fa fa-stack"><i class="material-icons off">star</i></span>
-                                            <span class="fa fa-stack"><i class="material-icons off">star</i></span>
-                                        </div>
-                                    </div>
-                                    <div class="price">
-                                        <div class="regular-price">$100.00</div>
-                                        <div class="old-price">$150.00</div>
-                                    </div>
-                                    <div class="button-wrapper">
-                                        <div class="button-group text-center">
-                                            <button type="button" class="btn btn-primary btn-cart"
-                                                    data-target="#cart-pop" data-toggle="modal"><i
-                                                    class="material-icons">shopping_cart</i><span>Add to cart</span>
-                                            </button>
-                                            <a href="wishlist.html" class="btn btn-primary btn-wishlist"><i
-                                                    class="material-icons">favorite</i><span>wishlist</span></a>
-                                            <button type="button" class="btn btn-primary btn-compare"><i
-                                                    class="material-icons">equalizer</i><span>Compare</span></button>
-                                            <button type="button" class="btn btn-primary btn-quickview"
-                                                    data-toggle="modal" data-target="#product_view"><i
-                                                    class="material-icons">visibility</i><span>Quick View</span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        </section>
                     </div>
                 </div>
             </div>
@@ -642,35 +548,35 @@ input[type=radio]:checked {
                                          aria-labelledby="product-tab-1">
                                         <div class="single-img img-full">
                                             <a href="img/productDTO/01.jpg"><img src="img/productDTO/01.jpg"
-                                                                               class="img-fluid" alt=""></a>
+                                                                                 class="img-fluid" alt=""></a>
                                         </div>
                                     </div>
                                     <div class="tab-pane" id="product-2" role="tabpanel"
                                          aria-labelledby="product-tab-2">
                                         <div class="single-img">
                                             <a href="img/productDTO/02.jpg"><img src="img/productDTO/02.jpg"
-                                                                               class="img-fluid" alt=""></a>
+                                                                                 class="img-fluid" alt=""></a>
                                         </div>
                                     </div>
                                     <div class="tab-pane" id="product-3" role="tabpanel"
                                          aria-labelledby="product-tab-3">
                                         <div class="single-img">
                                             <a href="img/productDTO/03.jpg"><img src="img/productDTO/03.jpg"
-                                                                               class="img-fluid" alt=""></a>
+                                                                                 class="img-fluid" alt=""></a>
                                         </div>
                                     </div>
                                     <div class="tab-pane" id="product-4" role="tabpanel"
                                          aria-labelledby="product-tab-4">
                                         <div class="single-img">
                                             <a href="img/productDTO/04.jpg"><img src="img/productDTO/04.jpg"
-                                                                               class="img-fluid" alt=""></a>
+                                                                                 class="img-fluid" alt=""></a>
                                         </div>
                                     </div>
                                     <div class="tab-pane" id="product-5" role="tabpanel"
                                          aria-labelledby="product-tab-5">
                                         <div class="single-img">
                                             <a href="img/productDTO/05.jpg"><img src="img/productDTO/05.jpg"
-                                                                               class="img-fluid" alt=""></a>
+                                                                                 class="img-fluid" alt=""></a>
                                         </div>
                                     </div>
                                 </div>
@@ -772,7 +678,12 @@ input[type=radio]:checked {
                             <div class="col-md-6 divide-right">
                                 <div class="row">
                                     <div class="col-md-5 col-xs-4 product-img float-left">
-                                        <img src="img/productDTO/01.jpg" class="img-responsive" alt="01">
+                                        <c:forEach var="prod_imgs"
+                                                   items="${product.images[0]}">
+                                            <img
+                                                    src="${BASE_URL}${prod_imgs}"
+                                                    class="img-fluid zoomImg" alt="">
+                                        </c:forEach>
                                     </div>
                                     <div class="col-md-7 col-xs-8 product-desc float-left">
                                         <h4 class="product-title text-capitalize">${product.name}</h4>
@@ -785,28 +696,33 @@ input[type=radio]:checked {
                                                 <span class="fa fa-stack"><i class="material-icons off">star</i></span>
                                             </div>
                                         </div>
-                                        <h3 class="price float-left w-100"><span class="regular-price align-middle">Rs.${product.price}0</span><span
+                                        <h3 class="price float-left w-100"><span
+                                                class="regular-price align-middle">Rs.${product.price}0</span><span
                                                 class="old-price align-middle">Rs.2100.00</span></h3>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6 divide-left">
-<%--                                <p class="cart-productDTO-count">There are 2 items in your cart.</p>--%>
+                                <p class="cart-productDTO-count">There are ${cart.size()} items in your cart.</p>
                                 <p class="total-productDTO float-left w-100">
-                                    <strong>Total productDTO:</strong> $150.00
+                                    <strong>Total products:</strong> <c:set var="total" value="${0}"/>
+                                    <c:forEach var="vart" items="${cart}">
+                                        <c:set var="total" value="${total+vart.qty*vart.products.price}"/>
+                                    </c:forEach>
+                                    <c:out value="Rs.${total}0"/>
                                 </p>
                                 <p class="shipping float-left w-100">
-                                    <strong>Total shipping:</strong> free
+                                    <strong>Total shipping:</strong> Rs. 350.00
                                 </p>
                                 <p class="total-price float-left w-100">
-                                    <strong>Total:</strong> $150.00(tax incl.)
+                                    <strong>Total:</strong> <c:out value="Rs.${total+350}0"/>
                                 </p>
                                 <div class="cart-content-btn float-left w-100">
                                     <form action="#">
-                                        <input class="btn pull-right mt_10 btn-primary" value="Continue shopping"
+                                        <input class="btn pull-right mt_10 btn-primary" data-dismiss="modal" aria-label="Close" value="Continue shopping"
                                                type="submit">
                                     </form>
-                                    <form action="checkout_page.html">
+                                    <form action="${BASE_URL}checkout">
                                         <input class="btn pull-right mt_10 btn-secondary" value="Proceed to checkout"
                                                type="submit">
                                     </form>
@@ -868,7 +784,7 @@ input[type=radio]:checked {
                 s0.parentNode.insertBefore(s1, s0);
             })();
 
-            function addToCart(){
+            function addToCart() {
 
                 const qty = document.getElementById('qty').value;
                 const size = document.getElementById('size').value;
@@ -881,7 +797,7 @@ input[type=radio]:checked {
                     body: JSON.stringify({
                         id: ${product.id},
                         qty_id: qty,
-                        size_id:size,
+                        size_id: size,
                     })
                 }).then(response => response.text()).then(res => {
                     console.log(res)

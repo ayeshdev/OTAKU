@@ -24,13 +24,15 @@ public class Products extends BaseEntity{
     @ManyToOne
     private Category category;
 
-    @ManyToOne
-    private Images images;
+    @Column(name = "image")
+    @CollectionTable(name = "product_image", joinColumns = @JoinColumn(name = "product_id"))
+    @ElementCollection(fetch = FetchType.EAGER)
+    private List<String> images;
 
     public Products() {
     }
 
-    public Products(Long id, String name, String description, Double price, Color color, Size size, Category category, Images images) {
+    public Products(Long id, String name, String description, Double price, Color color, Size size, Category category, List<String> images) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -97,11 +99,11 @@ public class Products extends BaseEntity{
         this.category = category;
     }
 
-    public Images getImages() {
+    public List<String> getImages() {
         return images;
     }
 
-    public void setImages(Images images) {
+    public void setImages(List<String> images) {
         this.images = images;
     }
 }

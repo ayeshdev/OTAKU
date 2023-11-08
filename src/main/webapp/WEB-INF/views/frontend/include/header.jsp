@@ -24,12 +24,12 @@
               </div>
             </div>
             <div class="currency-wrapper toggle">
-              <button type="button" class="btn text-capitalize dropdown-toggle"><span>€ Euro</span></button>
+              <button type="button" class="btn text-capitalize dropdown-toggle"><span>LKR</span></button>
               <div id="currency-dropdown" class="currency">
                 <ul>
-                  <li><span>€ Euro</span></li>
-                  <li><span>£ Pound Sterling</span></li>
-                  <li><span>$ US Dollar</span></li>
+                  <li><span>Euro</span></li>
+                  <li><span>Pound Sterling</span></li>
+                  <li><span>US Dollar</span></li>
                 </ul>
               </div>
             </div>
@@ -234,7 +234,7 @@
                   </div>
                 </li>
                 <li class="nav-item dropdown">
-                  <a class="nav-link text-uppercase" href="category.html">
+                  <a class="nav-link text-uppercase" href="${BASE_URL}shop">
                     Shop
                     <span class="sr-only">(current)</span>        </a>
 <%--                  <div class="dropdown-menu mega-menu v-2 z-depth-1 special-color py-3 px-3">--%>
@@ -406,7 +406,7 @@
 
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle text-uppercase" data-toggle="collapse" data-target="#menu2"
-                     aria-controls="menu2" aria-expanded="false" aria-label="Toggle navigation" href="#">
+                     aria-controls="menu2" aria-expanded="false" aria-label="Toggle navigation" href="${BASE_URL}shop">
                     Shop
                     <span class="sr-only">(current)</span>        </a>
                   <div class="dropdown-menu mega-menu v-2 z-depth-1 special-color py-3 px-3" id="menu2">
@@ -497,9 +497,3 @@
     </div>
   </div>
 </header>
-
-<script>
-  function viewCart(){
-    alert(sessionStorage.getItem("user_product"));
-  }
-</script>
